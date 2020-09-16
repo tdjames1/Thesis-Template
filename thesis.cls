@@ -67,14 +67,14 @@
 
 \LoadClass{report}
 
-\RequirePackage[a4paper,inner=4cm,outer=3cm,top=4cm,bottom=3.5cm,pdftex]{geometry}
+\RequirePackage[a4paper,inner=3.1cm,outer=2.1cm,top=3cm,bottom=2.5cm,pdftex]{geometry}
 
-
-\if@unsrt
-    \bibliographystyle{plainnaturlunsrt}
-\else
-    \bibliographystyle{plainnaturl}
-\fi
+\bibliographystyle{cb}
+%% \if@unsrt
+%%     \bibliographystyle{plainnaturlunsrt}
+%% \else
+%%     \bibliographystyle{plainnaturl}
+%% \fi
 
 \if@authoryear
     \usepackage[authoryear,comma,sort&compress]{natbib}
@@ -421,11 +421,7 @@
         % \setcounter{page}{2}
         %\vspace*{\stretch{1}}
         \begin{center}
-            \Huge \bf \@title
-        \end{center}
-        \vspace*{\stretch{1}}
-        \begin{center}
-            A thesis submitted to \@university{} for the degree of Doctor of Philosophy
+            \Huge  \@title
         \end{center}
         \vspace*{\stretch{1}}
         \begin{center}
@@ -433,11 +429,14 @@
         \end{center}
         \vspace*{\stretch{1}}
         \begin{center}
-            \@department
+            \Large \@department \\ \@university
         \end{center}
         \vspace*{\stretch{1}}
         \begin{center}
-            \monthyear\today
+            A thesis submitted for the degree of Doctor of Philosophy
+        \end{center}
+        \begin{center}
+            \Large \monthyear\today
         \end{center}
         \vspace*{\stretch{2}}
     \end{titlepage}
