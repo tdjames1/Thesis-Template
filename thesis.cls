@@ -69,7 +69,6 @@
 
 \RequirePackage[a4paper,inner=3.1cm,outer=2.1cm,top=3cm,bottom=2.5cm,pdftex]{geometry}
 
-\bibliographystyle{cb}
 %% \if@unsrt
 %%     \bibliographystyle{plainnaturlunsrt}
 %% \else
@@ -77,7 +76,8 @@
 %% \fi
 
 \if@authoryear
-    \usepackage[authoryear,comma,sort&compress]{natbib}
+    \usepackage[authoryear,comma,sort&compress,sectionbib]{natbib}
+    \usepackage{chapterbib}
 \else
     \usepackage[square,numbers,comma,sort&compress]{natbib}
 \fi
@@ -289,8 +289,26 @@
 % Renew the bibliography enviroment
 \makeatletter
 \renewcommand\bibsection{%
-  \chapter*{\bibname\@mkboth{{\bibname}}{{\bibname}}}\addcontentsline{toc}{chapter}{\bibname}}
+  \section{\refname\@mkboth{{\refname}}{{\refname}}}}%\addcontentsline{toc}{chapter}{\bibname}}
 \makeatother
+
+% Keywords
+\providecommand{\keywords}[1]
+{
+  {
+    \small
+    \textbf{\textit{Keywords---}}#1
+  }
+}
+
+\providecommand{\authors}[1]
+{
+  {
+    \Large #1
+  }
+}
+
+\renewenvironment{abstract}{\rightskip1in\noindent{\Large{\textbf{Abstract}\par}}}{}
 
 \RequirePackage{boxedminipage}
 \RequirePackage{listings}
@@ -363,6 +381,20 @@
     \thispagestyle{empty}
     \newpage
     \if@twocolumn\hbox{}\newpage\fi\fi\fi}
+
+% Heading for \chapter command
+\def\@makechapterhead#1{
+  %\vspace*{50pt}                     % Space at top of text page.
+  { \parindent 0pt \raggedright
+    \ifnum \c@secnumdepth >\m@ne     % IF secnumdepth > -1 THEN
+      \Huge\bf \@chapapp{} \thechapter % Print 'Chapter' and number.
+      \par
+      \vskip 20pt \fi                  % Space between number and title.
+    \LARGE \bf                        % Title.
+    #1\par
+    \nobreak                         % TeX penalty to prevent page break.
+    \vskip 20pt                      % Space between title and text.
+} }
 
 % Redefine chapters
 \def\@chapter[#1]#2{\ifnum \c@secnumdepth >\m@ne
