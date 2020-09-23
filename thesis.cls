@@ -76,7 +76,7 @@
 %% \fi
 
 \if@authoryear
-    \usepackage[authoryear,comma,sort&compress,sectionbib]{natbib}
+    \usepackage[authoryear,comma,sectionbib]{natbib}
     \usepackage{chapterbib}
 \else
     \usepackage[square,numbers,comma,sort&compress]{natbib}
