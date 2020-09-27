@@ -465,7 +465,11 @@
         \end{center}
         \vspace*{\stretch{1}}
         \begin{center}
-            A thesis submitted for the degree of Doctor of Philosophy
+          \includegraphics[trim=0 0 210pt 0,clip,width=0.66\textwidth]{template/TUOS_PRIMARY_LOGO_FULL COLOUR.jpg}
+        \end{center}
+        \vspace*{\stretch{1}}
+        \begin{center}
+            \Large A thesis submitted for the degree of Doctor of Philosophy
         \end{center}
         \begin{center}
             \Large \monthyear\today
